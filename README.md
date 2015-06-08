@@ -1,6 +1,4 @@
 # mruby-kalman
-mruby gem for accessing Raspberry IO.
-
 Kalman filtering for mruby.
 
 ##Usage
