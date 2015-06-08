@@ -18,5 +18,15 @@
 #*************************************************************************#
 
 class Kalman
-  
+  def inspect
+    s = self.to_s[0..-2]
+    s << " @theta=#{self.theta} "
+    s << "@thetad=#{self.thetad} "
+    s << "@Q_theta=#{self.Q_theta} "
+    s << "@Q_thetad=#{self.Q_thetad} "
+    s << "@R=#{self.R} "
+    s << "@P=#{self.P}"
+    s << ">"
+    return s
+  end
 end

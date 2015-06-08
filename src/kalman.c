@@ -287,7 +287,7 @@ void mrb_mruby_kalman_gem_init(mrb_state *mrb) {
   struct RClass *kalman;
   kalman = mrb_define_class(mrb, "Kalman", mrb->object_class);
   mrb_define_method(mrb, kalman, "initialize", mrb_kalman_initialize,
-                    MRB_ARGS_NONE());
+                    MRB_ARGS_OPT(2));
   mrb_define_method(mrb, kalman, "theta", mrb_kalman_theta, MRB_ARGS_NONE());
   mrb_define_method(mrb, kalman, "thetad", mrb_kalman_thetad, MRB_ARGS_NONE());
   mrb_define_method(mrb, kalman, "Q_theta", mrb_kalman_Q_theta, MRB_ARGS_NONE());
