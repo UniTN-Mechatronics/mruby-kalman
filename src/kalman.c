@@ -111,11 +111,17 @@ static void mrb_kalman_init(mrb_state *mrb, mrb_value self, double theta,
 }
 
 static mrb_value mrb_kalman_initialize(mrb_state *mrb, mrb_value self) {
-  mrb_float theta, thetad; // = mrb_nil_value();
-  mrb_get_args(mrb, "|ff", &theta, &thetad);
+  mrb_float theta, thetad = 0.0;
+  mrb_int narg = 0;
+  narg = mrb_get_args(mrb, "|ff", &theta, &thetad);
 
   // Call strcut initializer:
-  mrb_kalman_init(mrb, self, theta, thetad);
+  if (narg == 1)
+    mrb_kalman_init(mrb, self, theta, 0);
+  else if (narg == 0)
+    mrb_kalman_init(mrb, self, 0, 0);
+  else
+    mrb_kalman_init(mrb, self, theta, thetad);
   return mrb_nil_value();
 }
 
